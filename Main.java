@@ -41,7 +41,7 @@ public class Main {
                 } else if (s == morethan) {
                     type[cnt] = 1;
                 }
-                System.out.println(type[cnt]);
+                // System.out.println(type[cnt]);
                 cnt++;
             }
         }
@@ -173,7 +173,7 @@ public class Main {
             List<JTextField> textFields = getAllTextFields(inputPanel);
             double[] values = new double[30];
 
-            System.out.println(objectiveType);
+            // System.out.println(objectiveType);
             for (JTextField textField : textFields) {
                 String value = textField.getText();
                 double valuei = Double.parseDouble(value);
@@ -184,7 +184,10 @@ public class Main {
             }
 
             int totalinputs = (numConstraints * (numVariables + 1)) + numVariables;
+            System.out.println("");
 
+            System.out.println("Initial Simplex Table: ");
+            int numIteration = 1;
             switch (objectiveType) {
                 case 0:
                     int j = 0;
@@ -215,9 +218,11 @@ public class Main {
                     }
                     DisplayTableau(tableau);
                     while (hasNegativeEntry(tableau)) {
+                        System.out.println("");
+                        System.out.println("Iteration " + numIteration);
                         SimplexIteration(tableau);
                         DisplayTableau(tableau);
-
+                        numIteration++;
                     }
 
                     objectiveValue = tableau[numConstraints][numVariables + numConstraints];
@@ -260,11 +265,14 @@ public class Main {
                         }
                         aa++;
                     }
+                    numIteration = 1;
                     DisplayTableau(tableau);
                     while (hasNegativeEntry(tableau)) {
+                        System.out.println("");
+                        System.out.println("Iteration " + numIteration);
                         SimplexIteration(tableau);
                         DisplayTableau(tableau);
-
+                        numIteration++;
                     }
                     objectiveValue = tableau[numConstraints][numVariables + numConstraints];
                     decisionVariables = new double[numVariables];
