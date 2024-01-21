@@ -320,10 +320,36 @@ public class Main {
 
     }
 
+    public static void DisplayHeading() {
+        System.out.println();
+        if (objectiveType == 0) {
+            for (int i = 1; i <= numVariables; i++) {
+                System.out.printf("x" + i + "        ");
+            }
+            for (int j = 1; j <= numVariables; j++) {
+
+                System.out.printf("y" + j + "        ");
+            }
+            System.out.print("C");
+            System.out.println();
+        } else {
+            for (int i = 1; i <= numVariables; i++) {
+                System.out.printf("y" + i + "        ");
+            }
+            for (int j = 1; j <= numVariables; j++) {
+
+                System.out.printf("x" + j + "        ");
+            }
+            System.out.print("C");
+            System.out.println();
+        }
+    }
+
     public static void DisplayTableau(double[][] tableau) {
+        DisplayHeading();
         for (int i = 0; i < tableau.length; i++) {
             for (int j = 0; j < tableau[i].length; j++) {
-                System.out.print(tableau[i][j] + "     ");
+                System.out.printf("%.3f     ", tableau[i][j]);
             }
             System.out.println();
         }
