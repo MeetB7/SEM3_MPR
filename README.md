@@ -1,4 +1,4 @@
-# SY_MPR
+# SEM3_MPR
 Develop a Java program for the following problem:
 
 Problem: Solution of LPP(Linear Programming Problem) by dynamic programming
